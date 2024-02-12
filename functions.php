@@ -49,7 +49,7 @@ function stoica_abogados_setup() {
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus(
 		array(
-			'menu-1' => esc_html__( 'Primary', 'stoica-abogados' ),
+			'main-menu' => esc_html__( 'Primary', 'stoica-abogados' ),
 		)
 	);
 
@@ -93,8 +93,8 @@ function stoica_abogados_setup() {
 	add_theme_support(
 		'custom-logo',
 		array(
-			'height'      => 250,
-			'width'       => 250,
+			'height'      => 60,
+			'width'       => 320,
 			'flex-width'  => true,
 			'flex-height' => true,
 		)
@@ -160,6 +160,7 @@ function stoica_abogados_scripts() {
 	wp_enqueue_script( 'slick-carousel', get_template_directory_uri() . '/assets/vendors/slick-carousel/slick/slick.js', array('jquery'), _S_VERSION, true );
 	wp_enqueue_script( 'magnific-popup', get_template_directory_uri() . '/assets/vendors/magnific-popup/dist/jquery.magnific-popup.min.js', array('jquery'), _S_VERSION, true );
 	wp_enqueue_script( 'jquery-modal', get_template_directory_uri() . '/assets/vendors/jquery-modal/jquery.modal.min.js', array('jquery'), _S_VERSION, true );
+	wp_enqueue_script( 'main', get_template_directory_uri() . '/assets/main.js', array('jquery'), _S_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
