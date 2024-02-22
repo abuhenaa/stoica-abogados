@@ -44,7 +44,7 @@ jQuery(document).ready(function ($) {
         }
         else if ((verOffset = nAgt.indexOf("Safari")) != -1) {
             browser = "safari";
-        } 
+        }
         else if ((verOffset = nAgt.indexOf("Firefox")) != -1) {
             browser = "firefox";
         }
@@ -57,7 +57,7 @@ jQuery(document).ready(function ($) {
      * OS Detection
      * @constructor
      */
-    function OsOSDetect(){
+    function OsOSDetect() {
         $('html').addClass(window.navigator.platform);
     }
 
@@ -411,7 +411,7 @@ jQuery(document).ready(function ($) {
 
             $Filter.find('.filter-button').on('click', function (event) {
                 event.preventDefault();
-                $grid.isotope({filter: $(this).attr('data-filter')});
+                $grid.isotope({ filter: $(this).attr('data-filter') });
                 $(this).siblings().removeClass('is-checked');
                 $(this).addClass('is-checked');
             });
@@ -432,47 +432,47 @@ jQuery(document).ready(function ($) {
      */
     function OsMasonryFlex() {
         $('.masonry-container').each(function () {
-                var minwidth = parseInt($(this).data('masonry-grid-width'), 10) || 370;
-                var $container = $(this);
-                var oldWidth = $container.innerWidth();
-                var oldRatio = oldWidth / minwidth;
-                var $masonryOpt = {itemSelector: '.masonry-item'};
-                var $masonry = $container.masonry($masonryOpt);
+            var minwidth = parseInt($(this).data('masonry-grid-width'), 10) || 370;
+            var $container = $(this);
+            var oldWidth = $container.innerWidth();
+            var oldRatio = oldWidth / minwidth;
+            var $masonryOpt = { itemSelector: '.masonry-item' };
+            var $masonry = $container.masonry($masonryOpt);
 
-                function ResizeItem(containerWidth) {
-                    var Ratio = Math.floor(containerWidth / minwidth);
-                    if (Ratio === 0) {
-                        Ratio = 1;
-                    }
-                    else if (Ratio != oldRatio) {
-                        var itemWidth = 1 / Ratio;
-                        $container.children('.masonry-item').css({width: itemWidth * 100 + '%'});
-                    }
+            function ResizeItem(containerWidth) {
+                var Ratio = Math.floor(containerWidth / minwidth);
+                if (Ratio === 0) {
+                    Ratio = 1;
                 }
-
-                ResizeItem(oldWidth);
-
-                // On ImagesLoaded
-                $masonry.imagesLoaded().progress(function () {
-                    $masonry.masonry('layout');
-                });
-
-                // Window on resize
-                $(window).on('resize', function () {
-                    var newWidth = $container.innerWidth();
-                    if (newWidth != oldWidth) {
-                        ResizeItem(newWidth);
-                        oldWidth = newWidth;
-                    }
-                });
-
-                //Fix parallax background
-                $masonry.on('layoutComplete', function () {
-                    $(window).trigger('resize.px.parallax');
-                });
+                else if (Ratio != oldRatio) {
+                    var itemWidth = 1 / Ratio;
+                    $container.children('.masonry-item').css({ width: itemWidth * 100 + '%' });
+                }
             }
+
+            ResizeItem(oldWidth);
+
+            // On ImagesLoaded
+            $masonry.imagesLoaded().progress(function () {
+                $masonry.masonry('layout');
+            });
+
+            // Window on resize
+            $(window).on('resize', function () {
+                var newWidth = $container.innerWidth();
+                if (newWidth != oldWidth) {
+                    ResizeItem(newWidth);
+                    oldWidth = newWidth;
+                }
+            });
+
+            //Fix parallax background
+            $masonry.on('layoutComplete', function () {
+                $(window).trigger('resize.px.parallax');
+            });
+        }
         )
-        ;
+            ;
 
     }
 
@@ -522,7 +522,7 @@ jQuery(document).ready(function ($) {
             var $this = $(this);
             var waypoint = $this.waypoint({
                 handler: function (direction) {
-                    $this.find('.progressbar').progressbar({display_text: 'center'});
+                    $this.find('.progressbar').progressbar({ display_text: 'center' });
                     this.destroy();
                 },
                 offset: "80%"
@@ -538,7 +538,7 @@ jQuery(document).ready(function ($) {
      */
     function OsPiechart() {
         $('.piechart').each(function () {
-            var option = {segmentShowStroke: false, responsive: true};
+            var option = { segmentShowStroke: false, responsive: true };
             var data = [];
 
             $(this).children('.pie-legend').children('li').each(function () {
@@ -705,7 +705,7 @@ jQuery(document).ready(function ($) {
         var marker_image = "assets/images/logo/map-marker.png";
 
         if ($('#map').length > 0) {
-            if($('#map').attr('data-marker-image') != undefined){
+            if ($('#map').attr('data-marker-image') != undefined) {
                 marker_image = $('#map').attr('data-marker-image')
             }
             google.maps.event.addDomListener(window, 'load', init);
@@ -720,78 +720,78 @@ jQuery(document).ready(function ($) {
                 scrollwheel: false,
 
                 // The latitude and longitude to center the map (always required)
-                center: new google.maps.LatLng(40.6700, -73.9400), 
+                center: new google.maps.LatLng(40.6700, -73.9400),
 
                 // How you would like to style the map.
                 // This is where you would paste any style found on Snazzy Maps.
                 styles: [{
                     "featureType": "water",
                     "elementType": "geometry.fill",
-                    "stylers": [{"color": "#d3d3d3"}]
+                    "stylers": [{ "color": "#d3d3d3" }]
                 }, {
                     "featureType": "transit",
-                    "stylers": [{"color": "#808080"}, {"visibility": "off"}]
+                    "stylers": [{ "color": "#808080" }, { "visibility": "off" }]
                 }, {
                     "featureType": "road.highway",
                     "elementType": "geometry.stroke",
-                    "stylers": [{"visibility": "on"}, {"color": "#b3b3b3"}]
+                    "stylers": [{ "visibility": "on" }, { "color": "#b3b3b3" }]
                 }, {
                     "featureType": "road.highway",
                     "elementType": "geometry.fill",
-                    "stylers": [{"color": "#ffffff"}]
+                    "stylers": [{ "color": "#ffffff" }]
                 }, {
                     "featureType": "road.local",
                     "elementType": "geometry.fill",
-                    "stylers": [{"visibility": "on"}, {"color": "#ffffff"}, {"weight": 1.8}]
+                    "stylers": [{ "visibility": "on" }, { "color": "#ffffff" }, { "weight": 1.8 }]
                 }, {
                     "featureType": "road.local",
                     "elementType": "geometry.stroke",
-                    "stylers": [{"color": "#d7d7d7"}]
+                    "stylers": [{ "color": "#d7d7d7" }]
                 }, {
                     "featureType": "poi",
                     "elementType": "geometry.fill",
-                    "stylers": [{"visibility": "on"}, {"color": "#ebebeb"}]
+                    "stylers": [{ "visibility": "on" }, { "color": "#ebebeb" }]
                 }, {
                     "featureType": "administrative",
                     "elementType": "geometry",
-                    "stylers": [{"color": "#a7a7a7"}]
+                    "stylers": [{ "color": "#a7a7a7" }]
                 }, {
                     "featureType": "road.arterial",
                     "elementType": "geometry.fill",
-                    "stylers": [{"color": "#ffffff"}]
+                    "stylers": [{ "color": "#ffffff" }]
                 }, {
                     "featureType": "road.arterial",
                     "elementType": "geometry.fill",
-                    "stylers": [{"color": "#ffffff"}]
+                    "stylers": [{ "color": "#ffffff" }]
                 }, {
                     "featureType": "landscape",
                     "elementType": "geometry.fill",
-                    "stylers": [{"visibility": "on"}, {"color": "#efefef"}]
+                    "stylers": [{ "visibility": "on" }, { "color": "#efefef" }]
                 }, {
                     "featureType": "road",
                     "elementType": "labels.text.fill",
-                    "stylers": [{"color": "#696969"}]
+                    "stylers": [{ "color": "#696969" }]
                 }, {
                     "featureType": "administrative",
                     "elementType": "labels.text.fill",
-                    "stylers": [{"visibility": "on"}, {"color": "#737373"}]
+                    "stylers": [{ "visibility": "on" }, { "color": "#737373" }]
                 }, {
                     "featureType": "poi",
                     "elementType": "labels.icon",
-                    "stylers": [{"visibility": "off"}]
+                    "stylers": [{ "visibility": "off" }]
                 }, {
                     "featureType": "poi",
                     "elementType": "labels",
-                    "stylers": [{"visibility": "off"}]
+                    "stylers": [{ "visibility": "off" }]
                 }, {
                     "featureType": "road.arterial",
                     "elementType": "geometry.stroke",
-                    "stylers": [{"color": "#d6d6d6"}]
+                    "stylers": [{ "color": "#d6d6d6" }]
                 }, {
                     "featureType": "road",
                     "elementType": "labels.icon",
-                    "stylers": [{"visibility": "off"}]
-                }, {}, {"featureType": "poi", "elementType": "geometry.fill", "stylers": [{"color": "#dadada"}]}]
+                    "stylers": [{ "visibility": "off" }]
+                }, {}, { "featureType": "poi", "elementType": "geometry.fill", "stylers": [{ "color": "#dadada" }] }]
             };
 
             // Get the HTML DOM element that will contain your map
@@ -841,18 +841,18 @@ jQuery(document).ready(function ($) {
 
     OsNavAdditionInfo();
 
-    function OsBackToTop(){
-        if($('#back-to-top-btn').length > 0){
-            $('#back-to-top-btn').on('click', function(){
+    function OsBackToTop() {
+        if ($('#back-to-top-btn').length > 0) {
+            $('#back-to-top-btn').on('click', function () {
                 $('html,body').animate({
-                        scrollTop: 0
-                    },
+                    scrollTop: 0
+                },
                     400
                 );
             });
 
-            $(window).on('scroll', function(){
-                if($(this).scrollTop()>= $('#page-body').position().top){
+            $(window).on('scroll', function () {
+                if ($(this).scrollTop() >= $('#page-body').position().top) {
                     $('#back-to-top-btn').addClass('show-this');
                 }
                 else {
@@ -906,8 +906,8 @@ jQuery(document).ready(function ($) {
             var elementPostion = $($this.attr('href')).offset().top;
 
             $('html,body').animate({
-                    scrollTop: elementPostion
-                },
+                scrollTop: elementPostion
+            },
                 400, function () {
                     $('body').removeClass('mobile-nav-open');
                 }
@@ -1216,7 +1216,7 @@ jQuery(document).ready(function ($) {
 
             function page_disable_scrolling(event, modal) {
                 var ScrollBarWidth = window.innerWidth - $(window).width();
-                $('html').css({overflow: 'hidden', 'padding-right': ScrollBarWidth + 'px'});
+                $('html').css({ overflow: 'hidden', 'padding-right': ScrollBarWidth + 'px' });
 
                 if ($('.product-thumbnail-slider').length > 0) {
                     $('.product-thumbnail-slider .syn-slider-1').slick('setDimensions');
@@ -1224,24 +1224,24 @@ jQuery(document).ready(function ($) {
                 }
 
                 if ($('.modal').length > 0) {
-                    $('.modal').on( 'mousewheel', function ( e ) {
+                    $('.modal').on('mousewheel', function (e) {
                         var event = e.originalEvent,
                             d = event.wheelDelta || -event.detail;
 
-                        this.scrollTop += ( d < 0 ? 1 : -1 ) * 30;
+                        this.scrollTop += (d < 0 ? 1 : -1) * 30;
                         e.preventDefault();
                     });
                 }
 
                 if ($('.jquery-modal.blocker').length > 0) {
-                    $('.jquery-modal.blocker').on( 'mousewheel', function ( e ) {
+                    $('.jquery-modal.blocker').on('mousewheel', function (e) {
                         e.preventDefault();
                     });
                 }
             }
 
             function page_enable_scrolling(event, modal) {
-                $('html').css({overflow: '', 'padding-right': ''});
+                $('html').css({ overflow: '', 'padding-right': '' });
             }
 
             $(document).on($.modal.OPEN, page_disable_scrolling);
@@ -1298,8 +1298,8 @@ jQuery(document).ready(function ($) {
             }
             $this.tabs({
                 active: $this.data("active") || 0,
-                hide: {effect: "fadeOut", duration: 100},
-                show: {effect: "fadeIn", duration: 100},
+                hide: { effect: "fadeOut", duration: 100 },
+                show: { effect: "fadeIn", duration: 100 },
                 disabled: data_disable
             });
         });
@@ -1347,7 +1347,7 @@ jQuery(document).ready(function ($) {
             var $seclectMenu = $(this);
             var menuClass = $seclectMenu.parent(".select-wrapper").data("menu-class");
             $seclectMenu.selectmenu({
-                icons: {button: $(this).data("ui-icon") || "icon-down-open-big"}
+                icons: { button: $(this).data("ui-icon") || "icon-down-open-big" }
             });
 
             if (!(menuClass === undefined)) {
@@ -1402,14 +1402,14 @@ jQuery(document).ready(function ($) {
                 data: data,
 
                 // Notify result
-                success : function (result) {
-                    if(result == ""){
+                success: function (result) {
+                    if (result == "") {
                         $submit_button.html('SUCCESSFUL <i class="fa fa-check"></i>');
-                        setTimeout(function(){
+                        setTimeout(function () {
                             $submit_button.removeAttr('disabled').html(backup_button);
-                        },2000)
+                        }, 2000)
                     }
-                    else{
+                    else {
                         alert(result);
                         $submit_button.removeAttr('disabled').html(backup_button);
                     }
@@ -1424,8 +1424,8 @@ jQuery(document).ready(function ($) {
      * Add particle background effect
      * @constructor
      */
-    function OsParticleEffect(){
-        if($('#particles-js').length > 0){
+    function OsParticleEffect() {
+        if ($('#particles-js').length > 0) {
             particlesJS("particles-js", {
                 "particles": {
                     "number": {

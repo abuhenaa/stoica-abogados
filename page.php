@@ -27,7 +27,6 @@ get_header();
                </div>
             </div>
         </header>
-	<div id="page-body" class="page-body">
 		<main id="primary" class="site-main">
 			<?php
 			while ( have_posts() ) :

@@ -110,4 +110,6 @@
 			?>
             <!--<div class="social-area"> <ul class="social circle gray"> <li><a href="https://www.facebook.com/oliviadefalconi.WeddingPlanner" target="_blank"><i class="icon icon-facebook-1"></i></a></li><li><a href="https://www.instagram.com/oliviadefalconi.weddingplanner" target="_blank"><i class="icon icon-instagrem"></i></a></li><li><a href="https://www.linkedin.com/oliviadefalconi.weddingplanner" target="_blank"><i class="icon icon-linkedin-1"></i></a></li></ul> </div>--> 
          </div>
+         
+		   <div id="page-body" class="page-body stoica-single-post">
 
